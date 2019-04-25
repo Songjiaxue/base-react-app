@@ -1,0 +1,13 @@
+@import '../../../assets/style/variable.less';
+.app-container{
+  &-box{
+    margin-top: @app-header;
+  }
+  .app-content{
+    margin-left: @app-sider;
+    &-box{
+      min-height: calc(100vh - @app-header * 2);
+      padding: @content-padding;
+    }
+  }
+}

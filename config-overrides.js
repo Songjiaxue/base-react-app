@@ -8,7 +8,9 @@ module.exports = override(
   addLessLoader({
        javascriptEnabled: true,
        modifyVars: { 
-         '@primary-color': 'pink'
+          "@layout-header-background": "#fff",
+          "@layout-body-background": '#fff',
+          "@layout-header-padding": 0,
         },
     }),
   addDecoratorsLegacy()

@@ -1,0 +1,14 @@
+@import '../../../../assets/style/variable.less';
+.app-sider{
+  position: fixed;
+  top: @app-header;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+  padding-bottom: 48px;
+  overflow-y: auto;
+  z-index: 99;
+  .app-menu{
+    min-height: calc(100vh - @app-header);
+  }
+}
