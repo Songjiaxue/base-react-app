@@ -1,4 +1,5 @@
-const { override, fixBabelImports, addLessLoader, addDecoratorsLegacy } = require('customize-cra');
+const path = require('path');
+const { override, fixBabelImports, addLessLoader, addDecoratorsLegacy, addWebpackAlias } = require('customize-cra');
 module.exports = override(
   fixBabelImports('import', {
     libraryName: 'antd',
@@ -10,8 +11,15 @@ module.exports = override(
        modifyVars: { 
           "@layout-header-background": "#fff",
           "@layout-body-background": '#fff',
-          "@layout-header-padding": 0,
+          "@layout-footer-background": '#f0f2f5'
         },
     }),
-  addDecoratorsLegacy()
+  addDecoratorsLegacy(),
+  addWebpackAlias({
+    "@assets": path.resolve(__dirname, "src/assets"),
+    "@app": path.resolve(__dirname, "src/app"),
+    "@components": path.resolve(__dirname, "src/components"),
+    "@store": path.resolve(__dirname, "src/store"),
+    "@util": path.resolve(__dirname, "src/util"),
+  })
 );

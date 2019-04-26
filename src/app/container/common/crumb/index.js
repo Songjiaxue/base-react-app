@@ -34,7 +34,7 @@ class AppCrumb extends React.Component {
     arr.forEach(v => {
       obj = {
         ...obj,
-        [v.path]: v.name,
+        [v.uri]: v.menu,
       };
       if (v.children && v.children.length > 0) {
         obj = {

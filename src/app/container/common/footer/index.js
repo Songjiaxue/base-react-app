@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
+import { SystemConfig } from '@util';
 import './index.less';
 
 const { Footer } = Layout;
@@ -9,7 +10,7 @@ class AppFooter extends Component{
   render() {
     return (
       <Footer className="app-footer">
-        Header
+        { SystemConfig.CopyRight }
       </Footer>
     );
   }

@@ -1,0 +1,89 @@
+@import "../../assets/style/variable.less";
+.login-page{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #fafffc url('../../assets/img/loginPageBackground.png') no-repeat 100%;
+  background-size: cover;
+  position: relative;
+  .copy-right{
+    color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0.24rem;
+    font-size: 12px;
+  }
+  .login-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border-radius: 4px;
+    padding: .48rem 1rem;
+    .box-shadow;
+  }
+  .logo-bg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .24rem;
+    .logo-bg-box{
+      width: 0.44rem;
+    }
+    .system-name{
+      color: @text-color;
+      font-size: .28rem;
+      font-weight: 600;
+      margin-bottom: 0;
+      margin-left: .2rem;
+    }
+  }
+  .login-form {
+    .ant-input{
+      border: none;
+      border-radius: 0;
+      background-color: white;
+      &:focus{
+        box-shadow: none;
+      }
+    }
+    .anticon{
+      font-size: .20rem;
+    }
+    .ant-input-group-addon{
+      cursor: pointer;
+      color: @input-placeholder-color;
+      background: white;
+      border: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .img-code{
+      max-height: .44rem;
+    }
+    .ant-input-wrapper{
+      border-bottom: 1px solid @border-color-base;
+      width: 280px;
+      // overflow: hidden;
+    }
+    .active{
+      .ant-input-wrapper{
+        border-bottom: 1px solid @primary-color;
+      }
+    }
+    
+  }
+  
+  // .imgCode-item .ant-input-wrapper .ant-input-group-addon{
+  //   &:nth-of-type(2){
+  //     padding: 0;
+  //   }
+  // }
+  .login-form-button{
+    width: 100%;
+    font-size: .18rem;
+    margin-top: .24rem;
+  }
+}

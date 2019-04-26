@@ -10,7 +10,7 @@ function genertor(response) {
     .then(res => {
       if (res.status === 1100) {
         Cookies.remove('SystemToken');
-        window.location.href = './#/auth';
+        window.location.href = './login';
       }
       return res;
     })
@@ -28,7 +28,7 @@ export async function Get(url, option = {}) {
         credentials: 'include',
         headers: {
           'Content-type': 'application/json',
-          'Jiuling-Default-Access-Token': Cookies.get('SystemToken')
+          'Authorization': Cookies.get('SystemToken')
         }
       })
     )
@@ -42,7 +42,7 @@ export async function Post(url, option = {}) {
       credentials: 'include',
       headers: {
         'Content-type': 'application/json',
-        'Jiuling-Default-Access-Token': Cookies.get('SystemToken')
+        'Authorization': Cookies.get('SystemToken')
       },
       body: JSON.stringify(option)
     })
@@ -55,7 +55,7 @@ export async function Delete(url, option = {}) {
       credentials: 'include',
       headers: {
         'Content-type': 'application/json',
-        'Jiuling-Default-Access-Token': Cookies.get('SystemToken')
+        'Authorization': Cookies.get('SystemToken')
       },
       body: JSON.stringify(option)
     })
@@ -68,7 +68,7 @@ export async function Put(url, option = {}) {
       credentials: 'include',
       headers: {
         'Content-type': 'application/json',
-        'Jiuling-Default-Access-Token': Cookies.get('SystemToken')
+        'Authorization': Cookies.get('SystemToken')
       },
       body: JSON.stringify(option)
     })
@@ -81,7 +81,7 @@ export async function Patch(url, option = {}) {
       credentials: 'include',
       headers: {
         'Content-type': 'application/json',
-        'Jiuling-Default-Access-Token': Cookies.get('SystemToken')
+        'Authorization': Cookies.get('SystemToken')
       },
       body: JSON.stringify(option)
     })

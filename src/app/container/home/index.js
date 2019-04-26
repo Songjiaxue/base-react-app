@@ -26,10 +26,10 @@ class AppContainer extends React.Component {
       }
       routes = routes.concat(
         <Route
-          key={v.path}
+          key={v.code}
           component={v.component}
-          path={v.path}
-          breadcrumbName={v.breadcrumbName}
+          path={v.uri}
+          breadcrumbName={v.menu}
           exact
         />,
       );
@@ -57,11 +57,13 @@ class AppContainer extends React.Component {
           <Content className="app-content">
             <div className="app-content-box">
               <AppCrumb />
-              <Switch>
-                {
-                  this.renderRoutes(RouteConfig)
-                }
-              </Switch>
+              <div className="app-content-main">
+                <Switch>
+                  {
+                    this.renderRoutes(RouteConfig)
+                  }
+                </Switch>
+              </div>
             </div>
             <AppFooter />
           </Content>

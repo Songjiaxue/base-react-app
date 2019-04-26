@@ -5,9 +5,17 @@
   }
   .app-content{
     margin-left: @app-sider;
+    background-color: @app-bg;
     &-box{
       min-height: calc(100vh - @app-header * 2);
       padding: @content-padding;
+    }
+    &-main{
+      background-color: #fff;
+      padding: @content-padding;
+      border-radius: 4px;
+      min-height: 100%;
+      .box-shadow;
     }
   }
 }

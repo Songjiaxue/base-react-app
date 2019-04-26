@@ -4,4 +4,30 @@
   top: 0;
   left: 0;
   right: 0;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  .box-shadow;
+  .logo-box{
+    font-size: .28rem;
+    font-weight: 600;
+    flex: 1;
+    .img-box{
+      display: inline-block;
+      width: 0.44rem;
+      margin-right: @content-padding;
+    }
+  }
+  .user-info-box{
+    text-align: right;
+    flex: 2;
+    .user-info-in{
+      margin-left: @content-padding;
+      display: inline-block;
+      color: @primary-color;
+      >span{
+        margin-right: 5px;
+      }
+    }
+  }
 }
