@@ -6,7 +6,7 @@ import GenerateSearch from "./generate-search";
 import { TableSearchVerify, TableVerify, } from './prop-types';
 
 @withRouter
-export default class CreateTablePage extends PureComponent{
+class CreateTablePage extends PureComponent{
   constructor(props){
     super(props);
     this.state = {
@@ -51,3 +51,4 @@ CreateTablePage.defaultProps = {
   otherParams: {},
   formatSearchParams: x => x,
 };
+export default CreateTablePage;

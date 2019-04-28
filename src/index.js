@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import moment from 'moment';
+import { LocaleProvider } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 import './api';
 import './index.css';
 import App from './route.js';
@@ -15,7 +17,9 @@ window.moment = moment;
 ReactDOM.render(
   <HashRouter>
     <Provider userState={userInfoState}>
-      <App />
+      <LocaleProvider locale={zhCN}>
+        <App />
+      </LocaleProvider>
     </Provider>
   </HashRouter>,
   document.getElementById('root')

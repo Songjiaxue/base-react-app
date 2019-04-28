@@ -2,15 +2,15 @@ import React, { PureComponent, } from "react";
 import { Table, message, Tooltip, Popconfirm, Button, } from "antd";
 import { withRouter } from "react-router-dom";
 import _ from "lodash";
-import { formatTimeVal, formatValue, isFunction, } from "../../../util/helpers";
-import { PermissionControl, } from '../../../config';
-import { HOST_API, } from '../../api/index';
+import { formatTimeVal, formatValue, isFunction, } from "@util/helpers";
+import { SystemConfig } from '@util';
 import { TableVerify, } from './prop-types';
 
 import PermissionContext from '../base-page/permission-context';
 
+const { PermissionControl } = SystemConfig;
 @withRouter
-export default class GenerateTable extends PureComponent {
+class GenerateTable extends PureComponent {
 
   static contextType = PermissionContext;
 
@@ -79,7 +79,7 @@ export default class GenerateTable extends PureComponent {
     this.setState({
       loading: true
     });
-    const { code, data, message: msg } = await Post(url, Object.assign({}, queryParams, otherParams));
+    const { code, data, message: msg } = await window.Post(url, Object.assign({}, queryParams, otherParams));
     if (code) {
       this.setState({
         loading: false
@@ -248,7 +248,7 @@ export default class GenerateTable extends PureComponent {
    * @returns {Promise<void>}
    */
   fetchDelItem = async (url, { id, }) => {
-    const { code, msg, } = await Get(`${url}/${id}`);
+    const { code, msg, } = await window.Get(`${url}/${id}`);
     if (code === 0) {
       this.fetchData();
     } else {
@@ -321,7 +321,7 @@ export default class GenerateTable extends PureComponent {
     const sdata = {
       ids: rowSelection.map(z => z.id),
     };
-    Post(exportConfig.url, sdata).then(({ code, message: msg, data, }) => {
+    window.Post(exportConfig.url, sdata).then(({ code, message: msg, data, }) => {
       if(!code){
         const a = document.createElement("a");
         a.setAttribute("href", data);
@@ -339,3 +339,4 @@ GenerateTable.defaultProps = {
   otherParams: {},
   actionItems: [],
 };
+export default GenerateTable;

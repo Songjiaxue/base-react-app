@@ -4,14 +4,16 @@ import { Select, TreeSelect, DatePicker, Input, Button, Upload, message, } from 
 import Ajv from "ajv";
 import Cookies from "js-cookie";
 import { withRouter } from "react-router-dom";
-import { isArray, isString, isNumber, } from "../../../util/helpers";
-import {PermissionControl} from '../../../config';
-import Icon from '../../../libs/components/icon/index';
-import YearPicker from "../../../libs/components/year-picker/index";
+import { isArray, isNumber, } from "@util/helpers";
+import { SystemConfig, } from '@util';
+import Icon from '@components/icon';
+import YearPicker from "@components/year-picker/index";
 import AjvFormat from "../create-form/ajv-format";
 import { TableSearchVerify, } from './prop-types';
 
 import PermissionContext from '../base-page/permission-context';
+
+const { PermissionControl } = SystemConfig;
 
 const InputSetting = {
   style: {
@@ -44,7 +46,7 @@ const DatePickerSetting = {
 };
 
 @withRouter
-export default class GenerateTable extends PureComponent {
+class GenerateTable extends PureComponent {
   constructor(props) {
     super(props);
     const oldParams = GenerateTable.getParams(props.searchItems);
@@ -177,7 +179,7 @@ export default class GenerateTable extends PureComponent {
             onClick={this.resetParams}
           >
             重置
-          </Button >
+          </Button>
         </div>
       </Fragment>
     );
@@ -311,7 +313,7 @@ export default class GenerateTable extends PureComponent {
       return;
     }
     if (type === "exportFile" && url) {
-      Post(url, params).then(({ code, message: msg, data, }) => {
+      window.Post(url, params).then(({ code, message: msg, data, }) => {
         if(!code){
           const a = document.createElement("a");
           a.setAttribute("href", data);
@@ -608,16 +610,16 @@ export default class GenerateTable extends PureComponent {
     const { searchItems, } = this.props;
     const needFetchType = ['select', 'treeSelect',];
     searchItems.filter(z => needFetchType.includes(z.type) && (z.selectOptions instanceof Promise))
-      .map(z => {
+      .forEach(z => {
         newRequestDataMap[z.name] = z.selectOptions;
       });
     const requestList = [];
     const keys = Object.keys(newRequestDataMap);
-    keys.map(z => {
+    keys.forEach(z => {
       requestList.push(newRequestDataMap[z])
     });
     Promise.all(requestList).then(z => {
-      z.map((j, index) => {
+      z.forEach((j, index) => {
         newRequestDataMap[keys[index]] = j;
       });
       return newRequestDataMap;
@@ -636,3 +638,4 @@ GenerateTable.defaultProps = {
   searchActionItems: [],
   searchItems: [],
 }
+export default GenerateTable;

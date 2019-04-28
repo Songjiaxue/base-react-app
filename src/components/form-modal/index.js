@@ -1,8 +1,8 @@
 import React, {PureComponent,} from "react";
 import {Modal,message,} from 'antd';
 import PropTypes from "prop-types";
-import CreateForm from "../../../libs/components/create-form/index";
-import { isString, } from "../../../util/helpers";
+import CreateForm from "@components/create-form";
+import { isString, } from "@util/helpers";
 import "./index.less";
 
 const formItemLayout = {
@@ -33,7 +33,7 @@ export default class CommonModal extends PureComponent {
         destroyOnClose
         title={prefixTitle}
         visible={show}
-        wrapClassName={classnames('common-modal', className)}
+        wrapClassName={`common-modal ${className}`}
         onCancel={this.onCancel}
         cancelText={cancelText}
         confirmLoading={loading}
@@ -99,7 +99,7 @@ export default class CommonModal extends PureComponent {
     this.setState({
       loading: true
     });
-    const {code,message:msg,} = await Post(url,params);
+    const {code,message:msg,} = await window.Post(url,params);
     if (code) {
       message.error(msg);
       this.setState({
@@ -113,7 +113,7 @@ export default class CommonModal extends PureComponent {
   }
   clearUndefined(data) {
     let res = {};
-    Object.keys(data).map(z => {
+    Object.keys(data).forEach(z => {
       res[z] = (data[z] === undefined || data[z] === 'undefined') ? null: data[z];
     });
     return res;
