@@ -39,28 +39,37 @@
     |--package.json
     |--README.md            
 ### 项目使用
-1. 全局变量(Get, Post, Patch, Delete, Put, moment),使用时挂载在window对象上 => window.Get
-2. 设置代理 => src/setupProxy.js
-3. antd变量更改 => config-overrides.js
-4. 模拟数据使用:
-``````
+##### usage
+1 项目使用  
+```nohighlight
+    yarn
+    npm start // 开发
+    npm run build // 生产
+    npm run analyze // 分析包的大小
+```
+2 模拟数据使用  
+```nohighlight
     cd server && npm install
     npm start
-``````
-5. 路径别名：   
-``````
+```
+##### tip
+1 全局变量(Get, Post, Patch, Delete, Put, moment),使用时挂载在window对象上 => window.Get  
+2 设置代理 => src/setupProxy.js  
+3 antd变量更改 => config-overrides.js  
+4 路径别名：     
+```nohighlight
     "@assets": path.resolve(__dirname, "src/assets"),
     "@app": path.resolve(__dirname, "src/app"),
     "@components": path.resolve(__dirname, "src/components"),
     "@store": path.resolve(__dirname, "src/store"),
     "@util": path.resolve(__dirname, "src/util"),
-``````
+```
 ### create-react-app相关用法及文档
-1. npm run analyze // 分析包的大小
-2. [在开发环境使用https](https://facebook.github.io/create-react-app/docs/using-https-in-development)
-4. [环境变量设置](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables)
-5. [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-6. [proxy](https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development)
+1 [在开发环境使用https](https://facebook.github.io/create-react-app/docs/using-https-in-development)  
+2 [环境变量设置](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables)  
+3 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)  
+4 [proxy](https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development)  
+5 [使用全局变量](https://facebook.github.io/create-react-app/docs/using-global-variables)  
 
 
 
