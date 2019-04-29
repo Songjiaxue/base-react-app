@@ -1,9 +1,10 @@
 import {observable,action,runInAction,} from 'mobx';
+import Cookie from 'js-cookie';
 
 class UserInfo {
   @observable userInfo = {};
   constructor() {
-    this.getUserInfo();
+    Cookie.get('SystemToken') && this.getUserInfo();
   }
   @action delUserInfo = () => {
     this.userInfo = {};
@@ -15,7 +16,6 @@ class UserInfo {
     } else {
       runInAction(() => {
         this.userInfo = data;
-        // this.MenuItems = filterMenuFromPowerList(RouterList,powerList);
       });
     }
   };

@@ -5,6 +5,11 @@
         |--index.html                       // html模板文件
         |--favicon.ico                      // 图标文件
         |--manifest.json                    // html文件配置
+    |--server                               // 模拟数据
+        |--api                              // 模拟接口
+        |--bin                              // 启动文件
+        |--routes                           // 接口地址
+        |--app.js                           // 入口文件
     |——src                                   
         |--api                              // 请求方法
         |--app                              // 页面组件
@@ -27,6 +32,7 @@
         |--index.js                         // js入口文件
         |--route.js                         // 路由文件
         |--setupProxy.js                    // 设置代理
+    |--.eslintignore                        // eslint忽略文件
     |--.eslintrc.json                       // eslint文件
     |--.gitignore 
     |--config-overrides.js                  // 覆盖webpack默认文件
@@ -36,7 +42,12 @@
 1. 全局变量(Get, Post, Patch, Delete, Put, moment),使用时挂载在window对象上 => window.Get
 2. 设置代理 => src/setupProxy.js
 3. antd变量更改 => config-overrides.js
-4. 路径别名：   
+4. 模拟数据使用:
+``````
+    cd server && npm install
+    npm start
+``````
+5. 路径别名：   
 ``````
     "@assets": path.resolve(__dirname, "src/assets"),
     "@app": path.resolve(__dirname, "src/app"),

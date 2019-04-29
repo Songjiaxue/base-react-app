@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie';
 
-export const HOST_API = process.env.NODE_ENV === 'production' ? './' : 'api/';
+// export const HOST_API = process.env.NODE_ENV === 'production' ? './' : 'api/';
+export const HOST_API = process.env.NODE_ENV === 'production' ? './' : 'api/test/';
 
 function genertor(response) {
   return response
@@ -8,9 +9,17 @@ function genertor(response) {
       return res.json ? res.json() : res.bob();
     })
     .then(res => {
-      if (res.status === 1100) {
-        Cookies.remove('SystemToken');
-        window.location.href = './login';
+      switch (res.status) {
+        case 1001:
+        case 1002:
+        case 1003:
+        case 1004:
+        case 1100:
+          Cookies.remove('SystemToken');
+          window.location.href = './login';  
+          break;
+        default:
+          break;
       }
       return res;
     })
